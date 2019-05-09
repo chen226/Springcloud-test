@@ -23,7 +23,6 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    maven { url "http://10.240.212.209:8080/repository/maven-releases/" }
     mavenCentral()
 }
 
@@ -35,6 +34,7 @@ dependencyManagement {
 }
 
 dependencies {
+    compile fileTree(dir:'../libs',include:['*.jar'])
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
     compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
     compile('org.springframework.cloud:spring-cloud-starter-zipkin')
@@ -46,10 +46,6 @@ dependencies {
     compile('org.projectlombok:lombok:1.16.20')
     compile('net.logstash.logback:logstash-logback-encoder:4.11')
     compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.1')
-
-
-
-    compile('com.test:DataPermissionUtil:1.0.2')
     compile('com.github.pagehelper:pagehelper-spring-boot-starter:1.2.3')
     compile('tk.mybatis:mapper-spring-boot-starter:1.1.7')
     compile('mysql:mysql-connector-java:5.1.44')
@@ -60,4 +56,3 @@ dependencies {
     compile('net.sf.dozer:dozer:5.5.1')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
-

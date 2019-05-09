@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
+ * 用户测试数据权限
  * @author chenhj
  */
 @Slf4j
 @RestController
 @DataPermissionAop
-public class TestController {
+@RequestMapping(value = "/dataPermission",produces = "application/json; charset=UTF-8")
+public class DataPermissionTestController {
     @Autowired
     Table1Mapper table1Mapper;
     @Autowired
