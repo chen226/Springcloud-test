@@ -1,0 +1,65 @@
+#配置开发环境参数
+debug: false
+#spring.cache.redis.time-to-live: 600000
+spring:
+    application:
+        name: test
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.240.212.18:3306/sys_info?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false
+        username: dev
+        password: dev@123
+        filters: stat
+        maxActive: 300
+        initialSize: 5
+        maxWait: 60000
+        minIdle: 5
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    aop:
+        proxy-target-class: true
+
+server:
+    port: 2222
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:5505/eureka/
+    fetchRegistry: false
+    instance:
+        # 是否注册IP到eureka server，如不指定或设为false，那就会注册主机名到eureka server
+        prefer-ip-address: true
+#请求处理的超时时间
+hystrix:
+    command:
+        default:
+            execution:
+                timeout:
+                    enabled: true
+                isolation:
+                    strategy: SEMAPHORE
+                    thread:
+                        timeoutInMilliseconds: 250000
+
+ribbon:
+#    设置读取超时时间
+    ReadTimeout: 20000
+#    设置连接超时时间
+    ConnectTimeout: 600
+#    对当前实例的重试次数
+#    MaxAutoRetries: 1
+#    切换实例的重试次数
+#    MaxAutoRetriesNextServer: 1
+#    对所有操作请求都进行重试
+#    OkToRetryOnAllOperations: true
+feign:
+    hystrix:
+        enabled: true
+logging:
+    config: classpath:logback-dev.xml

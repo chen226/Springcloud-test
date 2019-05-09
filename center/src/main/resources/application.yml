@@ -1,0 +1,17 @@
+eureka:
+    client:
+        fetch-registry: false
+        register-with-eureka: false
+        service-url:
+            defaultZone: http://localhost:5505/eureka/
+server:
+    port: 5505
+    tomcat:
+        accept-count: 10000
+        max-connections: 5000
+        max-threads: 5000
+        port-header: HEAD,PUT,DELETE,OPTIONS,TRACE,COPY,SEARCH,PROPFIND
+        uri-encoding: utf-8
+spring:
+    application:
+        name: eureka
