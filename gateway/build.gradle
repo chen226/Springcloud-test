@@ -1,0 +1,57 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.3.RELEASE'
+    }
+    repositories {
+        maven { url "http://maven.aliyun.com/mvn/repository/" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+group 'utilsTest'
+version '0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR1'
+    }
+}
+jar {
+    baseName = 'gateway'
+}
+dependencies {
+    compile fileTree(dir:'../libs',include:['*.jar'])
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile('org.springframework.cloud:spring-cloud-starter-gateway')
+    compile('com.github.axet:kaptcha:0.0.9')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter-aop')
+    compile('org.springframework.boot:spring-boot-configuration-processor')
+    compile('net.sf.dozer:dozer:5.5.1')
+    compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile('org.springframework.boot:spring-boot-starter-logging')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-data-redis')
+    compile('org.springframework.boot:spring-boot-starter-data-redis-reactive')
+    compile('mysql:mysql-connector-java:5.1.44')
+    compile('com.alibaba:fastjson:1.2.44')
+    compile('org.projectlombok:lombok:1.16.20')
+    compile('cn.hutool:hutool-all:4.5.5')
+    compile('org.springframework.session:spring-session-data-redis')
+    compile('org.apache.commons:commons-lang3:3.6')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
