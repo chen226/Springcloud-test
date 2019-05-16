@@ -9,3 +9,5 @@ use springcloud to test utils which i coded
 
 目前已有：
 1.加入数据权限
+2.auth
+3.gateway
