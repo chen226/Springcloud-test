@@ -1,4 +1,6 @@
 rootProject.name = 'utilsTest'
 include 'center'
-include 'test'
+include 'auth-server'
+include 'client-test'
+include 'gateway'
 

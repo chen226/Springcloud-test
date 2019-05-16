@@ -9,8 +9,10 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/auth-server" />
             <option value="$PROJECT_DIR$/center" />
-            <option value="$PROJECT_DIR$/test" />
+            <option value="$PROJECT_DIR$/client-test" />
+            <option value="$PROJECT_DIR$/gateway" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />
