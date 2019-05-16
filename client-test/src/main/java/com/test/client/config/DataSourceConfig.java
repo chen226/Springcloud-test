@@ -1,4 +1,4 @@
-//package com.test.config;
+//package com.test.auth.config;
 //
 //import com.chj.common.mybatis.interceptor.DataPermissionInterceptor;
 //import com.chj.common.mybatis.interceptor.ResultInterceptor;

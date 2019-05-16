@@ -1,5 +1,5 @@
 
-package com.test.service;
+package com.test.client.service;
 
 import com.chj.common.Interface.DataFilterInterface;
 import com.chj.common.mybatis.DataPermission;
@@ -13,14 +13,14 @@ import java.util.List;
 
 /**
  * class_name: $
- * @author chenhj14
+ * @author chenhj
  * describe: 实现DataFilterInterface接口
  **/
 @Slf4j
 @Service
 public class DataFilterInterfaceImpl implements DataFilterInterface {
     /**
-     * @author chenhj14
+     * @author chenhj
      * describe: 实现queryDataPermission接口，定义数据具体用户的数据权限
      * @return DataPermission 封装好的刷选对象
      **/

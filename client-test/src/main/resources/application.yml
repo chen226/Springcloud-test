@@ -1,0 +1,58 @@
+#配置通用设置
+server:
+    port: 2222
+    tomcat:
+        # tomcat的URI编码
+        uri-encoding: utf-8
+        port-header: HEAD,PUT,DELETE,OPTIONS,TRACE,COPY,SEARCH,PROPFIND
+        accept-count: 10000
+        max-threads: 600
+        max-connections: 600
+spring:
+    application:
+        name: client-test
+    aop:
+        auto: true
+        proxy-target-class: true
+
+    profiles:
+        active: dev
+    freemarker:
+        cache: false
+        template-loader-path: classpath:/email-templates/
+    messages:
+        encoding: UTF-8
+    output:
+        ansi:
+            #日志多彩输出
+            enabled: detect
+    session:
+        store-type: redis
+    sleuth:
+        web:
+            client:
+              enabled: true
+        sampler:
+          probability: 1.0 # 将采样比例设置为 1.0，也就是全部都需要。默认是 0.1
+eureka:
+    client:
+        healthcheck:
+            enabled: true
+    fetchRegistry: false #Eureka client在启动时会从Eureka server获取注册信息并缓存到本地，之后只会增量获取信息（可以把eureka.client.shouldDisableDelta设置成false来强制每次都全量获取）
+
+mybatis:
+    #以下为 mybatis xml 必须配置
+    mapper-locations: classpath:/mapper/*.xml
+    type-aliases-package: com.test.client.entity
+    configuration:
+        mapUnderscoreToCamelCase: true
+mapper:
+    not-empty: false
+    before: true
+pagehelper:
+    helperDialect: mysql
+    params: count=countSql
+    #    页码<=0 查询第一页，页码>=总页数查询最后一页
+    reasonable: true
+    #    支持通过 mapping 接口参数来传递分页参数
+    supportMethodsArguments: true
